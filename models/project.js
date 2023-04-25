@@ -8,6 +8,8 @@ const projectSchema = new mongoose.Schema({
   img: { type: String, required: true }
 });
 
+projectSchema.index({name: 'text'});
+
 const Project = mongoose.model('Project', projectSchema);
 
 module.exports = Project;

@@ -303,6 +303,17 @@ app.get('/api/favorites', async (req, res) => {
   }
 })
 
+app.get('/api/search', async (req, res) => {
+  const searchTerm = req.query.term;
+
+  try {
+    const items = await Project.find({ $text: { $search: searchTerm } });
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
