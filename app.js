@@ -303,6 +303,7 @@ app.get('/api/favorites', async (req, res) => {
   }
 })
 
+// 搜索
 app.get('/api/search', async (req, res) => {
   const searchTerm = req.query.term;
 
